@@ -14,6 +14,7 @@ const config: Config = {
     "src/**/*.{ts,tsx}", // カバレッジ対象のファイル
     "!src/**/*.test.{ts,tsx}", // テストファイルを除外
     "!src/setupTests.ts", // 初期設定ファイルを除外
+    "!src/{main,App}.tsx", // エントリーポイントを除外
   ],
   coverageDirectory: "coverage", // カバレッジレポートの出力先
   coverageReporters: ["text", "html"], // レポート形式
