@@ -27,7 +27,7 @@ describe("Skills component", () => {
     expect(loginButton).toBeInTheDocument();
   });
 
-  test("not renders logout button", () => {
+  test("doesn't render logout button initially", () => {
     // 存在しない場合はqueryで取得を試み、notで確認する。
     const logoutButton = screen.queryByRole("button", {
       name: "ログアウト",
@@ -51,11 +51,11 @@ describe("Skills component", () => {
     expect(logoutButton).toBeInTheDocument();
   });
 
-  test("for debug", () => {
-    const view = render(<Skills skills={["JavaScript", "React", "CSS"]} />);
-    // レンダリングされたコンポーネント内のロールを確認する。
-    logRoles(view.container);
-    // この時点でのDOMが確認できる。
-    screen.debug();
-  });
+  // test("for debug", () => {
+  //   const view = render(<Skills skills={["JavaScript", "React", "CSS"]} />);
+  //   // レンダリングされたコンポーネント内のロールを確認する。
+  //   logRoles(view.container);
+  //   // この時点でのDOMが確認できる。
+  //   screen.debug();
+  // });
 });
