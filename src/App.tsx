@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./App.css";
-import Contact from "./components/Contact";
+import Contact from "./components/contact/Contact";
 
 function App() {
   return (

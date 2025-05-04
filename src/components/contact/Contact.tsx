@@ -3,11 +3,20 @@ function Contact() {
     <>
       <h1>お問い合わせフォーム</h1>
       <p>すべてのフィールドは必須項目です。</p>
+      <img src="https://sample_img.png" alt="sample alt" />
 
       <form action="">
         <div>
-          <label htmlFor="name">お名前</label>
-          <input type="text" id="name" />
+          <label htmlFor="name" data-testid="refactor-name">
+            お名前
+          </label>
+          <input
+            type="text"
+            id="name"
+            placeholder="フルネーム"
+            value="Full Name"
+            onChange={() => {}}
+          />
         </div>
         <div>
           <label htmlFor="email">メールアドレス</label>
