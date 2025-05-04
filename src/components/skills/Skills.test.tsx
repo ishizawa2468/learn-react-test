@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import Skills from "./Skills";
+import { logRoles } from "@testing-library/dom";
 
 describe("Skills component", () => {
   beforeEach(() => {
@@ -48,5 +49,13 @@ describe("Skills component", () => {
       }
     );
     expect(logoutButton).toBeInTheDocument();
+  });
+
+  test("for debug", () => {
+    const view = render(<Skills skills={["JavaScript", "React", "CSS"]} />);
+    // レンダリングされたコンポーネント内のロールを確認する。
+    logRoles(view.container);
+    // この時点でのDOMが確認できる。
+    screen.debug();
   });
 });
