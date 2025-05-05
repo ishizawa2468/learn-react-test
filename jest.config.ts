@@ -1,23 +1,27 @@
-import type { Config } from "jest";
+import { Config } from "jest";
 
 const config: Config = {
   testEnvironment: "jsdom",
   setupFilesAfterEnv: ["<rootDir>/src/setupTests.ts"],
   transform: {
-    "^.+\\.tsx?$": ["ts-jest", { tsconfig: "./tsconfig.app.json" }],
+    "^.+\\.tsx?$": [
+      "ts-jest",
+      { tsconfig: "./tsconfig.app.json", useESM: true },
+    ],
   },
-  moduleFileExtensions: ["ts", "tsx", "js", "jsx"],
+  extensionsToTreatAsEsm: [".ts", ".tsx"],
   moduleNameMapper: {
-    "\\.(css|less|scss|sass)$": "<rootDir>/styleMock.js", // Mock CSS imports
+    "\\.(css|less|scss|sass)$": "<rootDir>/styleMock.js",
   },
   collectCoverageFrom: [
-    "src/**/*.{ts,tsx}", // カバレッジ対象のファイル
-    "!src/**/*.test.{ts,tsx}", // テストファイルを除外
-    "!src/setupTests.ts", // 初期設定ファイルを除外
-    "!src/{main,App}.tsx", // エントリーポイントを除外
+    "src/**/*.{ts,tsx}",
+    "!src/**/*.test.{ts,tsx}",
+    "!src/setupTests.ts",
+    "!src/mocks/**/*.{ts,tsx}",
+    "!src/{main,App}.tsx",
   ],
-  coverageDirectory: "coverage", // カバレッジレポートの出力先
-  coverageReporters: ["text", "html"], // レポート形式
+  coverageDirectory: "coverage",
+  coverageReporters: ["text", "html"],
 };
 
 export default config;
